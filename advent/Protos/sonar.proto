@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "advent";
+
+package sonar;
+
+// The Sonar service definition
+service Sonar {
+    // Given depths from a scan, returns how many increases there were
+    rpc GetDepthIncreases (DepthIncreaseRequest) returns (DepthIncreaseReply);
+    // Given depths from a scan, returns how many increases between a sliding 3-depth window
+    rpc GetDepthSumIncreases  (DepthIncreaseRequest) returns (DepthIncreaseReply);
+}
+
+// Request that includes depths
+message DepthIncreaseRequest {
+    repeated int32 depths = 1;
+}
+
+// Reply that includes increases in depths
+message DepthIncreaseReply {
+    int32 increases = 1;
+}
