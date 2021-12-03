@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "advent";
+
+package navigate;
+
+// The Navigator service definition
+service Navigator {
+    // Run autopilot for the sub, based on given commands
+    rpc RunAutopilot (NavigationRequest) returns (NavigationReply);
+    // Run more advanced autopilot for the sub, based on given commands
+    rpc RunAdvancedAutopilot (NavigationRequest) returns (NavigationReply);
+}
+
+// Request that includes navigation commands
+message NavigationRequest {
+    repeated string commands = 1;
+}
+
+// Reply that tells final position
+message NavigationReply {
+    int32 finalPosition = 1;
+}

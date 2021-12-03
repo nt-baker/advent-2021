@@ -33,6 +33,7 @@ namespace advent
             {
                 endpoints.MapGrpcService<GreeterService>();
                 endpoints.MapGrpcService<SonarService>();
+                endpoints.MapGrpcService<NavigatorService>();
 
                 endpoints.MapGet("/", async context =>
                 {
